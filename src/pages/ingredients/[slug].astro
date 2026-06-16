@@ -1,0 +1,37 @@
+---
+import Layout from '@/components/Layout.astro';
+import WaitlistForm from '@/components/WaitlistForm.astro';
+import { ingredients } from '@/data/ingredients';
+
+export function getStaticPaths() {
+  return Object.entries(ingredients).map(([slug, ingredient]) => ({
+    params: { slug },
+    props: { ingredient, slug },
+  }));
+}
+
+const { ingredient, slug } = Astro.props;
+---
+
+<Layout title={`${ingredient.name} for Scalp Care`} description={ingredient.description} canonical={`/ingredients/${slug}`}>
+  <section class="mx-auto max-w-4xl px-4 py-16">
+    <p class="text-sm font-semibold uppercase tracking-[0.2em] text-moss">Ingredient guide</p>
+    <h1 class="mt-4 font-serif text-5xl">{ingredient.name} for scalp care</h1>
+    <p class="mt-5 text-lg leading-8 text-ink/72">{ingredient.description}</p>
+    <div class="prose-brand mt-10">
+      <h2>What it is</h2>
+      <p>{ingredient.what}</p>
+      <h2>Why it is used in scalp care</h2>
+      <p>{ingredient.why}</p>
+      <h2>Who it may be suitable for</h2>
+      <p>{ingredient.suitable}</p>
+      <h2>What to know before use</h2>
+      <p>{ingredient.know}</p>
+      <h2>Related blog links</h2>
+      <ul>
+        {ingredient.links.map((link) => <li><a href={link}>{link.replace('/blog/', '').replaceAll('-', ' ')}</a></li>)}
+      </ul>
+    </div>
+    <div class="mt-10"><WaitlistForm /></div>
+  </section>
+</Layout>

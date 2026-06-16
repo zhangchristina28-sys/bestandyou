@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f7f3ec"/>
+  <circle cx="960" cy="120" r="170" fill="#e7ded0"/>
+  <path d="M180 420c210 16 360-116 480-300 24 270-132 420-360 420-84 0-140-42-120-120Z" fill="#8aa37f"/>
+  <path d="M260 430c120-130 230-220 400-310" stroke="#243027" stroke-width="18" stroke-linecap="round" fill="none"/>
+  <text x="120" y="160" fill="#243027" font-family="Georgia, serif" font-size="72">Natural scalp care</text>
+  <text x="122" y="230" fill="#55745f" font-family="Arial, sans-serif" font-size="34">Lightweight daily care for greasy-prone roots</text>
+</svg>

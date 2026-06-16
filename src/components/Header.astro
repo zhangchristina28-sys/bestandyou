@@ -1,0 +1,13 @@
+---
+import { nav, site } from '@/data/site';
+---
+
+<header class="sticky top-0 z-40 border-b border-oat/80 bg-linen/90 backdrop-blur">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+    <a href="/" class="font-serif text-2xl text-ink" aria-label={`${site.name} home`}>{site.name}</a>
+    <nav class="hidden items-center gap-6 text-sm text-ink/80 md:flex" aria-label="Main navigation">
+      {nav.map((item) => <a class="hover:text-moss" href={item.href}>{item.label}</a>)}
+    </nav>
+    <a class="rounded-full bg-ink px-5 py-2 text-sm font-medium text-white hover:bg-moss" href="#waitlist">Join Waitlist</a>
+  </div>
+</header>

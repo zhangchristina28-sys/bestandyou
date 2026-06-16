@@ -1,0 +1,23 @@
+---
+const { compact = false } = Astro.props;
+---
+
+<form id="waitlist" class={`rounded-lg border border-oat bg-white p-5 shadow-soft ${compact ? '' : 'md:p-7'}`} name="waitlist">
+  <div class="mb-4">
+    <p class="text-sm font-semibold uppercase tracking-[0.18em] text-moss">Waitlist</p>
+    <h2 class="mt-2 font-serif text-2xl text-ink md:text-3xl">Get early scalp care updates</h2>
+    <p class="mt-2 text-sm leading-6 text-ink/70">Join for product updates, launch notes, and practical oily scalp care tips.</p>
+  </div>
+  <div class="grid gap-3 md:grid-cols-[1fr_0.8fr_auto]">
+    <label class="sr-only" for="email">Email</label>
+    <input id="email" name="email" type="email" required placeholder="Email address" class="min-h-12 rounded-md border border-oat bg-linen px-4 text-sm outline-none focus:border-moss" />
+    <label class="sr-only" for="concern">Scalp concern</label>
+    <select id="concern" name="concern" class="min-h-12 rounded-md border border-oat bg-linen px-4 text-sm outline-none focus:border-moss">
+      <option>Oily scalp</option>
+      <option>Greasy roots</option>
+      <option>Sensitive scalp</option>
+      <option>Product buildup</option>
+    </select>
+    <button class="min-h-12 rounded-md bg-moss px-6 text-sm font-semibold text-white hover:bg-ink" type="submit">Submit</button>
+  </div>
+</form>

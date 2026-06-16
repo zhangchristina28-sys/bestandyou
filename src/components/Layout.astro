@@ -1,0 +1,26 @@
+---
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import SEO from './SEO.astro';
+import '@/styles/global.css';
+
+const { title, description, canonical, type, schema } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f3ec" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <SEO title={title} description={description} canonical={canonical} type={type} schema={schema} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,61 @@
+---
+import Layout from '@/components/Layout.astro';
+import WaitlistForm from '@/components/WaitlistForm.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Root & Ritual',
+  url: 'https://example.com',
+  description: 'Natural scalp care for oily and greasy-prone scalps.',
+};
+---
+
+<Layout title="Natural Scalp Care for Oily, Greasy-Prone Roots" description="Root & Ritual creates lightweight, non-greasy natural scalp care for modern women with oily or greasy-prone scalps." schema={schema}>
+  <section class="bg-linen">
+    <div class="mx-auto grid min-h-[78vh] max-w-6xl items-center gap-10 px-4 py-16 md:grid-cols-[1.05fr_0.95fr]">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-moss">Natural scalp care</p>
+        <h1 class="mt-5 font-serif text-5xl leading-[1.05] text-ink md:text-7xl">Light daily care for oily scalps.</h1>
+        <p class="mt-6 max-w-xl text-lg leading-8 text-ink/72">A clean, practical scalp care brand for greasy-prone roots, wash-day buildup, and modern routines that need to feel fresh without feeling stripped.</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a class="rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white hover:bg-moss" href="#waitlist">Join the Waitlist</a>
+          <a class="rounded-full border border-moss px-6 py-3 text-sm font-semibold text-moss hover:bg-white" href="/scalp-quiz">Take the Scalp Quiz</a>
+          <a class="rounded-full border border-oat px-6 py-3 text-sm font-semibold text-ink hover:bg-white" href="#learn-more">Learn More</a>
+        </div>
+      </div>
+      <div class="relative">
+        <img src="/og-scalp-care.svg" alt="Botanical leaf visual for natural scalp care" class="w-full rounded-lg border border-oat bg-white shadow-soft" loading="eager" />
+      </div>
+    </div>
+  </section>
+
+  <section id="learn-more" class="border-y border-oat bg-white/50">
+    <div class="mx-auto grid max-w-6xl gap-6 px-4 py-14 md:grid-cols-3">
+      <div>
+        <h2 class="font-serif text-3xl">For greasy-prone roots</h2>
+        <p class="mt-3 text-sm leading-6 text-ink/70">Built around the real rhythm of oily scalps: fresh roots, lightweight texture, and routines that work between wash days.</p>
+      </div>
+      <div>
+        <h2 class="font-serif text-3xl">Leave-on, not heavy</h2>
+        <p class="mt-3 text-sm leading-6 text-ink/70">Our product direction favors watery, quick-absorbing scalp serums that do not coat the hair or leave a greasy finish.</p>
+      </div>
+      <div>
+        <h2 class="font-serif text-3xl">Botanical and modern</h2>
+        <p class="mt-3 text-sm leading-6 text-ink/70">Rosemary, tea tree, niacinamide, and aloe vera guide the first formula concept with a careful cosmetic approach.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 py-16">
+    <div class="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-moss">Product concept</p>
+        <h2 class="mt-3 font-serif text-4xl">Oily Scalp Care Serum</h2>
+        <p class="mt-4 leading-7 text-ink/72">A lightweight, non-greasy daily scalp serum concept designed for oily roots, dry shampoo users, and anyone who wants a clean-feeling scalp routine without medical claims or complicated steps.</p>
+        <a class="mt-6 inline-flex rounded-full bg-moss px-6 py-3 text-sm font-semibold text-white hover:bg-ink" href="/products/oily-scalp-care-serum">Explore the serum</a>
+      </div>
+      <WaitlistForm compact />
+    </div>
+  </section>
+</Layout>

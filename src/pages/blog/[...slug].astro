@@ -1,0 +1,38 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '@/components/Layout.astro';
+import WaitlistForm from '@/components/WaitlistForm.astro';
+import { site } from '@/data/site';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const url = `${site.url}/blog/${post.slug}`;
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: post.data.pubDate.toISOString(),
+  dateModified: (post.data.updatedDate || post.data.pubDate).toISOString(),
+  author: { '@type': 'Organization', name: site.name },
+  publisher: { '@type': 'Organization', name: site.name },
+  mainEntityOfPage: url,
+};
+---
+
+<Layout title={post.data.title} description={post.data.description} canonical={`/blog/${post.slug}`} type="article" schema={schema}>
+  <article class="mx-auto max-w-3xl px-4 py-16">
+    <p class="text-sm font-semibold uppercase tracking-[0.2em] text-moss">Scalp care guide</p>
+    <h1 class="mt-4 font-serif text-5xl leading-tight">{post.data.title}</h1>
+    <p class="mt-5 text-lg leading-8 text-ink/72">{post.data.description}</p>
+    <div class="prose-brand mt-10">
+      <Content />
+    </div>
+    <div class="mt-12"><WaitlistForm /></div>
+  </article>
+</Layout>
